@@ -7,7 +7,7 @@ describe Day do
 
   describe "on initialization" do
     it "should be a Day" do
-      @test_day.should be_a Day
+      expect(@test_day).to be_a(Day)
     end
   end
 
