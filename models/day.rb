@@ -20,15 +20,4 @@ class Day
   def get_month
     @given_date.split('/')[0].to_i
   end
-
-  def days_in_month(month)
-    case month
-    when 1 || 3 || 5 || 7 || 8 || 10 || 12
-      return 31
-    when 4 || 6 || 9 || 11
-      return 30
-    when 2
-      return 28
-    end
-  end
 end
