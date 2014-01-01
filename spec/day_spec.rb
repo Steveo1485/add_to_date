@@ -44,10 +44,4 @@ describe Day do
       expect(@test_day.get_month).to eq(1)
     end
   end
-
-  describe "#days_in_month" do
-    it "should return an integer for the number of days in a passed month" do
-      expect(@test_day.days_in_month(@test_day.get_month)).to eq(31)
-    end
-  end
 end
