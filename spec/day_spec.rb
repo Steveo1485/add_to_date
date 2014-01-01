@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Day do
   before(:each) do
-    @test_day = Day.new('1/1', 10)
+    @test_day = Day.new('01/01', 10)
   end
 
   describe "on initialization" do
@@ -36,6 +36,12 @@ describe Day do
   describe "#get_day" do
     it "should return an integer of given day" do
       expect(@test_day.get_day).to eq(1)
+    end
+  end
+
+  describe "#get_month" do
+    it "should return an integer of given month" do
+      expect(@test_day.get_month).to eq(1)
     end
   end
 end

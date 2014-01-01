@@ -16,4 +16,8 @@ class Day
   def get_day
     @given_date.split('/')[1].to_i
   end
+
+  def get_month
+    @given_date.split('/')[0].to_i
+  end
 end
