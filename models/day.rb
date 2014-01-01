@@ -12,4 +12,8 @@ class Day
   def number_an_integer?
     @num_to_add.is_a?(Fixnum)
   end
+
+  def get_day
+    @given_date.split('/')[1].to_i
+  end
 end

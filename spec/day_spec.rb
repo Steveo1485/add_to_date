@@ -32,4 +32,10 @@ describe Day do
       expect(not_integer.number_an_integer?).to eq(false)
     end
   end
+
+  describe "#get_day" do
+    it "should return an integer of given day" do
+      expect(@test_day.get_day).to eq(1)
+    end
+  end
 end
