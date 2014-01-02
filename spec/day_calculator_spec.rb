@@ -32,4 +32,18 @@ describe Controller do
       expect(Controller.valid_number?("string")).to eq(false)
     end
   end
+
+  describe "::starting_date" do
+    it "should return the valid starting date" do
+      STDIN.should_receive(:gets).and_return("01/01")
+      expect(Controller.starting_date).to eq("01/01")
+    end
+  end
+
+  describe "::number_to_add" do
+    it "should return the valid integer to add" do
+      STDIN.should_receive(:gets).and_return("10")
+      expect(Controller.number_to_add).to eq(10gi)
+    end
+  end
 end

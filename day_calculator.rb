@@ -5,21 +5,14 @@ require_relative 'models/calendar'
 class Controller
 
   def self.run
-    start_date = View.get_start_date
-    until self.valid_date_format?(start_date)
-      puts View.start_date_error
-      start_date = View.get_start_date
-    end
 
-    number = View.get_number_of_days
-    until self.valid_number?(number)
-      puts View.number_error
-      number = View.get_number_of_days
-    end
+    start_date = self.starting_date
+    number_to_add = self.number_to_add
 
-    day_calculator = Day.new(start_date, number)
+
+    day_calculator = Day.new(start_date, number_to_add)
     start_day = day_calculator.get_day
-    total_days = day_calculator.total_days(start_day, number.to_i)
+    total_days = day_calculator.total_days(start_day, number_to_add)
 
     start_month = day_calculator.get_month
 
@@ -44,6 +37,24 @@ class Controller
     non_digit_check = number =~ /\D/
     non_digit_check == nil ? true : false
   end
+
+  def self.starting_date
+    start_date = View.get_start_date
+    until self.valid_date_format?(start_date)
+      puts View.start_date_error
+      start_date = View.get_start_date
+    end
+    return start_date
+  end
+
+  def self.number_to_add
+    number = View.get_number_of_days
+    until self.valid_number?(number)
+      puts View.number_error
+      number = View.get_number_of_days
+    end
+    return number.to_i
+  end
 end
 
-p Controller.run
+# p Controller.run
