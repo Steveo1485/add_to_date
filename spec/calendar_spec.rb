@@ -1,13 +1,13 @@
 require 'spec_helper'
 
 describe Calendar do
-  before(:each) do
-    @test_cal = Calendar.new
-  end
-
   describe "::days_in_month" do
     it "should return an integer for the number of days in a passed month" do
       expect(Calendar.days_in_month(1)).to eq(31)
+    end
+
+    it "should raise error if passed an incorrect month" do
+      expect{ Calendar.days_in_month(13) }.to raise_error
     end
   end
 

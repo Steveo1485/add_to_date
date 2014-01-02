@@ -1,25 +1,28 @@
 require 'spec_helper'
 
 describe Controller do
-  before(:each) do
-    @test_controller = Controller.new
-  end
-
-  describe "on initialization" do
-    it "should be a Controller" do
-      expect(@test_controller).to be_a(Controller)
+  describe "::run" do
+    it "should run the program and return the correct result" do
+      STDIN.should_receive(:gets).and_return("01/01")
+      STDIN.should_receive(:gets).and_return("1")
+      expect(Controller.run).to eq("Your calculated date is: 01/02")
     end
   end
 
   describe "::valid_date_format?" do
     it "should be true if passed correctly formatted date" do
       expect(Controller.valid_date_format?("01/01")).to eq(true)
+      expect(Controller.valid_date_format?("1/1")).to eq(true)
+      expect(Controller.valid_date_format?("01/1")).to eq(true)
+      expect(Controller.valid_date_format?("1/01")).to eq(true)
     end
 
     it "should be false if passed incorrectly formatted date" do
       expect(Controller.valid_date_format?("Jan 7")).to eq(false)
       expect(Controller.valid_date_format?("1/1/13")).to eq(false)
       expect(Controller.valid_date_format?("01/32")).to eq(false)
+      expect(Controller.valid_date_format?("13/1")).to eq(false)
+      expect(Controller.valid_date_format?("001/001")).to eq(false)
     end
   end
 
@@ -51,13 +54,14 @@ describe Controller do
 
   describe "::print_new_date" do
     it "should return the new_date from View" do
-      expect(Controller.print_new_date([1,10])).to eq("1/10")
+      expect(Controller.print_new_date([1,10])).to eq("Your calculated date is: 1/10")
     end
   end
 
   describe "::get_calendar" do
     it "should return an array containing calendar hashes" do
       expect(Controller.get_calendar(1, 10)).to eq([{1 => 31}])
+      expect(Controller.get_calendar(12, 32)).to eq([{12 => 31}, {1=>31}])
     end
   end
 

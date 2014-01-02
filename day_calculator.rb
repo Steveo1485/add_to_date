@@ -7,27 +7,26 @@ class Controller
   def self.run
     start_date = self.starting_date
     number_to_add = self.number_to_add
-    date = self.get_date(start_date, number_to_add)
-    start_month = date.get_month
-    start_day = date.get_day
-    total_days = date.total_days(start_day, number_to_add)
+    day_calculator = self.get_date(start_date, number_to_add)
+    start_month = day_calculator.get_month
+    start_day = day_calculator.get_day
+    total_days = day_calculator.total_days(start_day, number_to_add)
     calendar = self.get_calendar(start_month, total_days)
-    new_day = date.calculate_day(total_days, calendar)
+    new_day = day_calculator.calculate_day(total_days, calendar)
     format_result = self.format_result(start_date, new_day)
-    self.print_new_date(format_result)
+    return self.print_new_date(format_result)
   end
 
   def self.valid_date_format?(date_string)
     date_check = date_string =~ /[0-9]{1,2}[\/][0-9]{1,2}$/
     if date_check == 0
       month = date_string.split('/')[0].to_i
-      month_check = (1..12).include?(month)
+      return false if month < 1 || month > 12
       day = date_string.split('/')[1].to_i
       day_check = (1..Calendar.days_in_month(month)).include?(day)
-      return month_check && day_check ? true : false
-    else
-      return false
+      return day_check
     end
+    return false
   end
 
   def self.valid_number?(number)
@@ -78,4 +77,4 @@ class Controller
   end
 end
 
-p Controller.run
+puts Controller.run

@@ -13,8 +13,8 @@ class Day
     return @given_date.split('/')[0].to_i
   end
 
-  def calculate_day(total_days, calendars)
-    calendars.each do |calendar|
+  def calculate_day(total_days, all_calendars)
+    all_calendars.each do |calendar|
       calendar.each do |month, days|
         if total_days > days
           total_days -= days

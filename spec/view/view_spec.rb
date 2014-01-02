@@ -3,7 +3,7 @@ require 'spec_helper'
 describe View do
 
   describe "::get_start_date" do
-    it "should ask for a starting date string" do
+    it "should ask for and return a starting date string" do
       STDIN.should_receive(:gets).and_return("01/01")
       expect(View.get_start_date).to eq('01/01')
     end
@@ -16,7 +16,7 @@ describe View do
   end
 
   describe "::get_number_of_days" do
-    it "should ask for a number of days to add" do
+    it "should ask for and return a string of days to add" do
       STDIN.should_receive(:gets).and_return("10")
       expect(View.get_number_of_days).to eq("10")
     end
@@ -30,7 +30,7 @@ describe View do
 
   describe "::new_date" do
     it "should print a string of a new date" do
-      expect(View.new_date([1, 11])).to eq("1/11")
+      expect(View.new_date([1, 11])).to eq("Your calculated date is: 1/11")
     end
   end
 end
