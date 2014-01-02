@@ -1,6 +1,6 @@
 class View
   def self.get_start_date
-    puts "Please enter string of start date in [m]m/[d]d format:"
+    puts "Please enter start date in [m]m/[d]d format:"
     return start_date = STDIN.gets.chomp
   end
 
