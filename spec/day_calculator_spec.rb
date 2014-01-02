@@ -22,6 +22,9 @@ describe Controller do
   describe "::valid_date_format?" do
     it "should be true if passed correctly formatted date" do
       expect(Controller.valid_date_format?("01/01")).to eq(true)
+      expect(Controller.valid_date_format?("1/1")).to eq(true)
+      expect(Controller.valid_date_format?("01/1")).to eq(true)
+      expect(Controller.valid_date_format?("1/01")).to eq(true)
     end
 
     it "should be false if passed incorrectly formatted date" do
