@@ -63,6 +63,17 @@ class Controller
   def self.get_date(start_date, number_to_add)
     return Day.new(start_date, number_to_add)
   end
+
+  def self.format_result(original, result)
+    original_format = original.split('/')
+    if original_format[0].start_with?("0")
+      result[0].prepend("0")
+    end
+    if original_format[1].start_with?("0")
+      result[1].prepend("0")
+    end
+    return result
+  end
 end
 
 p Controller.run
