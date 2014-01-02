@@ -43,7 +43,13 @@ describe Controller do
   describe "::number_to_add" do
     it "should return the valid integer to add" do
       STDIN.should_receive(:gets).and_return("10")
-      expect(Controller.number_to_add).to eq(10gi)
+      expect(Controller.number_to_add).to eq(10)
+    end
+  end
+
+  describe "::print_new_date" do
+    it "should return the new_date from View" do
+      expect(Controller.print_new_date([1,10])).to eq("1/10")
     end
   end
 end

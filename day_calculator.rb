@@ -5,22 +5,20 @@ require_relative 'models/calendar'
 class Controller
 
   def self.run
-
     start_date = self.starting_date
     number_to_add = self.number_to_add
 
+    date = Day.new(start_date, number_to_add)
+    start_month = date.get_month
+    start_day = date.get_day
 
-    day_calculator = Day.new(start_date, number_to_add)
-    start_day = day_calculator.get_day
-    total_days = day_calculator.total_days(start_day, number_to_add)
-
-    start_month = day_calculator.get_month
+    total_days = date.total_days(start_day, number_to_add)
 
     calendar = Calendar.generate_calendar(start_month, total_days)
 
-    new_day = day_calculator.calculate_day(total_days, calendar)
+    new_day = date.calculate_day(total_days, calendar)
 
-    View.new_date(new_day)
+    self.print_new_date(new_day)
   end
 
   def self.valid_date_format?(string)
@@ -55,6 +53,10 @@ class Controller
     end
     return number.to_i
   end
+
+  def self.print_new_date(date)
+    return View.new_date(date)
+  end
 end
 
-# p Controller.run
+p Controller.run
