@@ -17,8 +17,8 @@ describe View do
 
   describe "::get_number_of_days" do
     it "should ask for a number of days to add" do
-      STDIN.should_receive(:gets).and_return(10)
-      expect(View.get_number_of_days).to eq(10)
+      STDIN.should_receive(:gets).and_return("10")
+      expect(View.get_number_of_days).to eq("10")
     end
   end
 
@@ -30,7 +30,7 @@ describe View do
 
   describe "::new_date" do
     it "should print a string of a new date" do
-      expect(View.new_date(1, 11)).to eq("1/11")
+      expect(View.new_date([1, 11])).to eq("1/11")
     end
   end
 end
