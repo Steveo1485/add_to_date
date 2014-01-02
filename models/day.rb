@@ -5,14 +5,6 @@ class Day
     @num_to_add = number
   end
 
-  def self.given_date_string?(string)
-    string.is_a?(String)
-  end
-
-  def self.number_an_integer?(number)
-    number.is_a?(Fixnum)
-  end
-
   def get_day
     @given_date.split('/')[1].to_i
   end

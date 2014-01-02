@@ -11,26 +11,6 @@ describe Day do
     end
   end
 
-  describe "::given_date_string?" do
-    it "should return true if passed is a string" do
-      expect(Day.given_date_string?('01/01')).to eq(true)
-    end
-
-    it "should return false if not passed a string" do
-      expect(Day.given_date_string?(01/01)).to eq(false)
-    end
-  end
-
-  describe "::number_an_integer?" do
-    it "should return true if passed an integer" do
-      expect(Day.number_an_integer?(10)).to eq(true)
-    end
-
-    it "should return false if not passed an integer" do
-      expect(Day.number_an_integer?("10")).to eq(false)
-    end
-  end
-
   describe "#get_day" do
     it "should return an integer of given day" do
       expect(@test_day.get_day).to eq(1)
