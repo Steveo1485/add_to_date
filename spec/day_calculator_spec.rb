@@ -54,8 +54,14 @@ describe Controller do
   end
 
   describe "::get_calendar" do
-    it "should return a Calendar object" do
-      expect(Controller.get_calendar(1, 10)).to eq({1 => 31gi})
+    it "should return a calendar hash" do
+      expect(Controller.get_calendar(1, 10)).to eq({1 => 31})
+    end
+  end
+
+  describe "::get_date" do
+    it "should return a Day object" do
+      expect(Controller.get_date("1/10", 10)).to be_a(Day)
     end
   end
 end

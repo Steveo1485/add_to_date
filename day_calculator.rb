@@ -8,7 +8,8 @@ class Controller
     start_date = self.starting_date
     number_to_add = self.number_to_add
 
-    date = Day.new(start_date, number_to_add)
+    date = self.get_date(start_date, number_to_add)
+
     start_month = date.get_month
     start_day = date.get_day
     total_days = date.total_days(start_day, number_to_add)
@@ -59,6 +60,10 @@ class Controller
 
   def self.get_calendar(start_month, total_days)
     Calendar.generate_calendar(start_month, total_days)
+  end
+
+  def self.get_date(start_date, number_to_add)
+    Day.new(start_date, number_to_add)
   end
 end
 
