@@ -54,8 +54,8 @@ describe Controller do
   end
 
   describe "::get_calendar" do
-    it "should return a calendar hash" do
-      expect(Controller.get_calendar(1, 10)).to eq({1 => 31})
+    it "should return an array containing calendar hashes" do
+      expect(Controller.get_calendar(1, 10)).to eq([{1 => 31}])
     end
   end
 

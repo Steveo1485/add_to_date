@@ -63,4 +63,4 @@ class Controller
 
 end
 
-# p Controller.run
+p Controller.run
