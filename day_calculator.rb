@@ -11,10 +11,9 @@ class Controller
     date = Day.new(start_date, number_to_add)
     start_month = date.get_month
     start_day = date.get_day
-
     total_days = date.total_days(start_day, number_to_add)
 
-    calendar = Calendar.generate_calendar(start_month, total_days)
+    calendar = self.get_calendar(start_month, total_days)
 
     new_day = date.calculate_day(total_days, calendar)
 
@@ -57,6 +56,10 @@ class Controller
   def self.print_new_date(date)
     return View.new_date(date)
   end
+
+  def self.get_calendar(start_month, total_days)
+    Calendar.generate_calendar(start_month, total_days)
+  end
 end
 
-p Controller.run
+# p Controller.run

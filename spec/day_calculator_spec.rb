@@ -52,4 +52,10 @@ describe Controller do
       expect(Controller.print_new_date([1,10])).to eq("1/10")
     end
   end
+
+  describe "::get_calendar" do
+    it "should return a Calendar object" do
+      expect(Controller.get_calendar(1, 10)).to eq({1 => 31gi})
+    end
+  end
 end
