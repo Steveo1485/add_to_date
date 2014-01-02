@@ -8,6 +8,8 @@ class Calendar
       return 30
     when 2
       return 28
+    else
+      raise "Error: Not a valid month"
     end
   end
 
