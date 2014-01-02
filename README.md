@@ -9,3 +9,10 @@ Example
 * Date: 1/1
 * Integer: 10
 * Output: 1/11
+
+Instructions
+--------
+To run program in command line:  
+``ruby day_calculator.rb``
+
+To use method without running program, use ``Controller::day_calculator`` and pass a date string and integer as arguments.
