@@ -10,7 +10,7 @@ class View
 
   def self.get_number_of_days
     puts "Please enter a number of days to add:"
-    number_of_days = STDIN.gets
+    number_of_days = STDIN.gets.chomp
   end
 
   def self.number_error
