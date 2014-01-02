@@ -54,7 +54,7 @@ class Controller
   end
 
   def self.get_calendar(start_month, total_days)
-    return Calendar.generate_calendar(start_month, total_days)
+    return Calendar.generate_calendars(start_month, total_days)
   end
 
   def self.get_date(start_date, number_to_add)
