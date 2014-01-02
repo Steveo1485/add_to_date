@@ -12,4 +12,14 @@ class Day
   def get_month
     @given_date.split('/')[0].to_i
   end
+
+  def calculate_day(total_days, calendar)
+    calendar.each do |month, days|
+      if total_days > days
+        total_days -= days
+      else
+        return [month, total_days]
+      end
+    end
+  end
 end
