@@ -25,7 +25,7 @@ describe Day do
 
   describe "#calculate_day" do
     it "should return an array containing the new date" do
-      expect(@test_day.calculate_day(10, { 1 => 31 })).to eq([1, 10])
+      expect(@test_day.calculate_day(10, [{ 1 => 31 }])).to eq([1, 10])
     end
   end
 
