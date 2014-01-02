@@ -75,6 +75,19 @@ class Controller
     end
     return result
   end
+
+  def self.day_calculator(starting_date, number)
+    start_date = starting_date
+    number_to_add = number
+    day_calculator = self.get_date(start_date, number_to_add)
+    start_month = day_calculator.get_month
+    start_day = day_calculator.get_day
+    total_days = day_calculator.total_days(start_day, number_to_add)
+    calendar = self.get_calendar(start_month, total_days)
+    new_day = day_calculator.calculate_day(total_days, calendar)
+    format_result = self.format_result(start_date, new_day)
+    return format_result.join("/")
+  end
 end
 
 puts Controller.run

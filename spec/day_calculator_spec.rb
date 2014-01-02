@@ -79,4 +79,13 @@ describe Controller do
       expect(Controller.format_result("1/01", ["1", "1"])).to eq(["1", "01"])
     end
   end
+
+  describe "::day_calculator" do
+    it "should return the correct day when passed a starting date and number to add" do
+      expect(Controller.day_calculator("1/1", 1)).to eq("1/2")
+      expect(Controller.day_calculator("12/31", 1)).to eq("1/1")
+      expect(Controller.day_calculator("8/10", 100)).to eq("11/18")
+      expect(Controller.day_calculator("7/4", 365)).to eq("7/4")
+    end
+  end
 end
