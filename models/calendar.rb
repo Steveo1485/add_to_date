@@ -16,21 +16,18 @@ class Calendar
   def self.generate_calendars(month, days_to_add)
     all_calendars = []
     month_day_pairs = []
-
     until days_to_add <= 0
       month_day_pairs << [month, self.days_in_month(month)]
       days_to_add -= self.days_in_month(month)
       month += 1
-
       if month > 12
         all_calendars << Hash[month_day_pairs]
-        month_day_pairs = []
+        month_day_pairs.clear
         month = 1
       elsif days_to_add <= 0
         all_calendars << Hash[month_day_pairs]
       end
     end
-
     return all_calendars
   end
 end
