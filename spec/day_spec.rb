@@ -11,25 +11,23 @@ describe Day do
     end
   end
 
-  describe "#given_date_string?" do
-    it "should return true if @given_date is a string" do
-      expect(@test_day.given_date_string?).to eq(true)
+  describe "::given_date_string?" do
+    it "should return true if passed is a string" do
+      expect(Day.given_date_string?('01/01')).to eq(true)
     end
 
-    it "should return false if @given_date is not a string" do
-      not_string = Day.new(11, 10)
-      expect(not_string.given_date_string?).to eq(false)
+    it "should return false if not passed a string" do
+      expect(Day.given_date_string?(01/01)).to eq(false)
     end
   end
 
-  describe "#number_an_integer?" do
-    it "should return true if @num_to_add is an integer" do
-      expect(@test_day.number_an_integer?).to eq(true)
+  describe "::number_an_integer?" do
+    it "should return true if passed an integer" do
+      expect(Day.number_an_integer?(10)).to eq(true)
     end
 
-    it "should return false if @num_to_add is not an integer" do
-      not_integer = Day.new('1/1', 1.0)
-      expect(not_integer.number_an_integer?).to eq(false)
+    it "should return false if not passed an integer" do
+      expect(Day.number_an_integer?("10")).to eq(false)
     end
   end
 

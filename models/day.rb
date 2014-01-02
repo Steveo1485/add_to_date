@@ -5,12 +5,12 @@ class Day
     @num_to_add = number
   end
 
-  def given_date_string?
-    @given_date.is_a?(String)
+  def self.given_date_string?(string)
+    string.is_a?(String)
   end
 
-  def number_an_integer?
-    @num_to_add.is_a?(Fixnum)
+  def self.number_an_integer?(number)
+    number.is_a?(Fixnum)
   end
 
   def get_day
