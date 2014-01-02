@@ -7,14 +7,14 @@ class Controller
   def self.run
     start_date = self.starting_date
     number_to_add = self.number_to_add
-    date = self.get_date(start_date, number_to_add)
-    start_month = date.get_month
-    start_day = date.get_day
-    total_days = date.total_days(start_day, number_to_add)
+    day_calculator = self.get_date(start_date, number_to_add)
+    start_month = day_calculator.get_month
+    start_day = day_calculator.get_day
+    total_days = day_calculator.total_days(start_day, number_to_add)
     calendar = self.get_calendar(start_month, total_days)
-    new_day = date.calculate_day(total_days, calendar)
+    new_day = day_calculator.calculate_day(total_days, calendar)
     format_result = self.format_result(start_date, new_day)
-    self.print_new_date(format_result)
+    return self.print_new_date(format_result)
   end
 
   def self.valid_date_format?(date_string)
