@@ -13,7 +13,8 @@ class Controller
     total_days = date.total_days(start_day, number_to_add)
     calendar = self.get_calendar(start_month, total_days)
     new_day = date.calculate_day(total_days, calendar)
-    self.print_new_date(new_day)
+    format_result = self.format_result(start_date, new_day)
+    self.print_new_date(format_result)
   end
 
   def self.valid_date_format?(date_string)
@@ -65,6 +66,7 @@ class Controller
   end
 
   def self.format_result(original, result)
+    result.map! { |number| number.to_s }
     original_format = original.split('/')
     if original_format[0].start_with?("0")
       result[0].prepend("0")
