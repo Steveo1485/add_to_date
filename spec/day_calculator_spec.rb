@@ -1,16 +1,6 @@
 require 'spec_helper'
 
 describe Controller do
-  before(:each) do
-    @test_controller = Controller.new
-  end
-
-  describe "on initialization" do
-    it "should be a Controller" do
-      expect(@test_controller).to be_a(Controller)
-    end
-  end
-
   describe "::run" do
     it "should run the program and return the correct result" do
       STDIN.should_receive(:gets).and_return("01/01")
