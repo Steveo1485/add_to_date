@@ -28,4 +28,10 @@ describe Day do
       expect(@test_day.calculate_day(10, { 1 => 31 })).to eq([1, 10])
     end
   end
+
+  describe "#total_days" do
+    it "should return the sum of the start day and the days to add" do
+      expect(@test_day.total_days(10, 10)).to eq(20)
+    end
+  end
 end

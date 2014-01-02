@@ -22,4 +22,8 @@ class Day
       end
     end
   end
+
+  def total_days(start_day, days_to_add)
+    start_day + days_to_add
+  end
 end
