@@ -63,7 +63,6 @@ class Controller
   def self.get_date(start_date, number_to_add)
     return Day.new(start_date, number_to_add)
   end
-
 end
 
 p Controller.run
