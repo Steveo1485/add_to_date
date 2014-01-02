@@ -8,4 +8,8 @@ class View
     puts "Please enter a number of days to add:"
     number_of_days = STDIN.gets
   end
+
+  def self.new_date(month, day)
+    return "#{month}/#{day}"
+  end
 end

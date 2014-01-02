@@ -15,4 +15,10 @@ describe View do
       expect(View.get_number_of_days).to eq(10)
     end
   end
+
+  describe "::new_date" do
+    it "should print a string of a new date" do
+      expect(View.new_date(1, 11)).to eq("1/11")
+    end
+  end
 end
