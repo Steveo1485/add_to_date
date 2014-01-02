@@ -12,8 +12,9 @@ describe Calendar do
   end
 
   describe "::generate_calendar" do
-    it "should return a hash containing a calendar covering given days" do
-      expect(Calendar.generate_calendar(1, 70)).to eq({ 1 => 31, 2 => 28, 3 => 31 })
+    it "should return an array containing hashes of calendars covering given days" do
+      expect(Calendar.generate_calendar(1, 70)).to eq([{ 1 => 31, 2 => 28, 3 => 31 }])
+      expect(Calendar.generate_calendar(12, 32)).to eq([{ 12 => 31 }, { 1 => 31}])
     end
   end
 end
