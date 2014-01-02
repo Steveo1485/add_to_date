@@ -66,4 +66,13 @@ describe Controller do
       expect(Controller.get_date("1/10", 10)).to be_a(Day)
     end
   end
+
+  describe "::format_result" do
+    it "should format the result in the same style as the input" do
+      expect(Controller.format_result("01/01", ["1", "1"])).to eq(["01", "01"])
+      expect(Controller.format_result("1/1", ["1", "1"])).to eq(["1", "1"])
+      expect(Controller.format_result("01/1", ["1", "1"])).to eq(["01", "1"])
+      expect(Controller.format_result("1/01", ["1", "1"])).to eq(["1", "01"])
+    end
+  end
 end

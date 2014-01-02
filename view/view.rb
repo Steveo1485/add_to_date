@@ -18,6 +18,6 @@ class View
   end
 
   def self.new_date(date_array)
-    return "#{date_array[0]}/#{date_array[1]}"
+    return date_array.join("/")
   end
 end
