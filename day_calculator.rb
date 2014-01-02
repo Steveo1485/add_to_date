@@ -23,12 +23,12 @@ class Controller
     day = string.split('/')[1].to_i
     day_check = (1..Calendar.days_in_month(month)).include?(day)
 
-    month_check && day_check ? true : false
+    return month_check && day_check ? true : false
   end
 
   def self.valid_number?(number)
     non_digit_check = number =~ /\D/
-    non_digit_check == nil ? true : false
+    return non_digit_check == nil ? true : false
   end
 
   def self.starting_date
@@ -54,11 +54,11 @@ class Controller
   end
 
   def self.get_calendar(start_month, total_days)
-    Calendar.generate_calendar(start_month, total_days)
+    return Calendar.generate_calendar(start_month, total_days)
   end
 
   def self.get_date(start_date, number_to_add)
-    Day.new(start_date, number_to_add)
+    return Day.new(start_date, number_to_add)
   end
 
 end
