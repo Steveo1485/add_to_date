@@ -6,11 +6,11 @@ class Day
   end
 
   def get_day
-    @given_date.split('/')[1].to_i
+    return @given_date.split('/')[1].to_i
   end
 
   def get_month
-    @given_date.split('/')[0].to_i
+    return @given_date.split('/')[0].to_i
   end
 
   def calculate_day(total_days, calendars)
@@ -26,6 +26,6 @@ class Day
   end
 
   def total_days(start_day, days_to_add)
-    start_day + days_to_add
+    return start_day + days_to_add
   end
 end

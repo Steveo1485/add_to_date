@@ -11,7 +11,7 @@ describe View do
 
   describe "::start_date_error" do
     it "should return the error message" do
-      expect(View.start_date_error).to eq("Please try again. Be sure the date is in [m]m/[d]d format.")
+      expect(View.start_date_error).to eq("Please try again. Be sure the date is correct and in [m]m/[d]d format.")
     end
   end
 
