@@ -20,4 +20,15 @@ describe Controller do
       expect(Controller.valid_date_format?("01/32")).to eq(false)
     end
   end
+
+  describe "::valid_number?" do
+    it "should be true if passed an integer" do
+      expect(Controller.valid_number?(10)).to eq(true)
+    end
+
+    it "should be false if not passed an integer" do
+      expect(Controller.valid_number?(1.1)).to eq(false)
+      expect(Controller.valid_number?("string")).to eq(false)
+    end
+  end
 end
