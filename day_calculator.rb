@@ -16,6 +16,18 @@ class Controller
       puts View.number_error
       number = View.get_number_of_days
     end
+
+    day_calculator = Day.new(start_date, number)
+    start_day = day_calculator.get_day
+    total_days = day_calculator.total_days(start_day, number.to_i)
+
+    start_month = day_calculator.get_month
+
+    calendar = Calendar.generate_calendar(start_month, total_days)
+
+    new_day = day_calculator.calculate_day(total_days, calendar)
+
+    View.new_date(new_day)
   end
 
   def self.valid_date_format?(string)
@@ -34,4 +46,4 @@ class Controller
   end
 end
 
-Controller.run
+p Controller.run

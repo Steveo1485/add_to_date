@@ -17,7 +17,7 @@ class View
     return "Please try again. Make sure your number is an integer and not a float."
   end
 
-  def self.new_date(month, day)
-    return "#{month}/#{day}"
+  def self.new_date(date_array)
+    return "#{date_array[0]}/#{date_array[1]}"
   end
 end
