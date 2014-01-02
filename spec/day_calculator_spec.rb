@@ -11,6 +11,14 @@ describe Controller do
     end
   end
 
+  describe "::run" do
+    it "should run the program and return the correct result" do
+      STDIN.should_receive(:gets).and_return("01/01")
+      STDIN.should_receive(:gets).and_return("1")
+      expect(Controller.run).to eq("Your calculated date is: 01/02")
+    end
+  end
+
   describe "::valid_date_format?" do
     it "should be true if passed correctly formatted date" do
       expect(Controller.valid_date_format?("01/01")).to eq(true)
