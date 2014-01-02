@@ -21,13 +21,12 @@ class Controller
     date_check = date_string =~ /[0-9]{1,2}[\/][0-9]{1,2}$/
     if date_check == 0
       month = date_string.split('/')[0].to_i
-      month_check = (1..12).include?(month)
+      return false if month < 1 || month > 12
       day = date_string.split('/')[1].to_i
       day_check = (1..Calendar.days_in_month(month)).include?(day)
-      return month_check && day_check ? true : false
-    else
-      return false
+      return day_check
     end
+    return false
   end
 
   def self.valid_number?(number)
@@ -78,4 +77,4 @@ class Controller
   end
 end
 
-p Controller.run
+puts Controller.run

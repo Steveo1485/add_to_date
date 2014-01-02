@@ -31,6 +31,7 @@ describe Controller do
       expect(Controller.valid_date_format?("Jan 7")).to eq(false)
       expect(Controller.valid_date_format?("1/1/13")).to eq(false)
       expect(Controller.valid_date_format?("01/32")).to eq(false)
+      expect(Controller.valid_date_format?("13/1")).to eq(false)
       expect(Controller.valid_date_format?("001/001")).to eq(false)
     end
   end
