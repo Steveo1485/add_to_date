@@ -7,17 +7,12 @@ class Controller
   def self.run
     start_date = self.starting_date
     number_to_add = self.number_to_add
-
     date = self.get_date(start_date, number_to_add)
-
     start_month = date.get_month
     start_day = date.get_day
     total_days = date.total_days(start_day, number_to_add)
-
     calendar = self.get_calendar(start_month, total_days)
-
     new_day = date.calculate_day(total_days, calendar)
-
     self.print_new_date(new_day)
   end
 
@@ -65,6 +60,7 @@ class Controller
   def self.get_date(start_date, number_to_add)
     Day.new(start_date, number_to_add)
   end
+
 end
 
 # p Controller.run
