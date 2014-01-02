@@ -16,14 +16,17 @@ class Controller
     self.print_new_date(new_day)
   end
 
-  def self.valid_date_format?(string)
-    month = string.split('/')[0].to_i
-    month_check = (1..12).include?(month)
-
-    day = string.split('/')[1].to_i
-    day_check = (1..Calendar.days_in_month(month)).include?(day)
-
-    return month_check && day_check ? true : false
+  def self.valid_date_format?(date_string)
+    date_check = date_string =~ /[0-9]{1,2}[\/][0-9]{1,2}$/
+    if date_check == 0
+      month = date_string.split('/')[0].to_i
+      month_check = (1..12).include?(month)
+      day = date_string.split('/')[1].to_i
+      day_check = (1..Calendar.days_in_month(month)).include?(day)
+      return month_check && day_check ? true : false
+    else
+      return false
+    end
   end
 
   def self.valid_number?(number)
