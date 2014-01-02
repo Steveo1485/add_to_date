@@ -14,7 +14,7 @@ class Controller
     calendar = self.get_calendar(start_month, total_days)
     new_day = date.calculate_day(total_days, calendar)
     format_result = self.format_result(start_date, new_day)
-    self.print_new_date(format_result)
+    puts self.print_new_date(format_result)
   end
 
   def self.valid_date_format?(date_string)
@@ -78,4 +78,4 @@ class Controller
   end
 end
 
-p Controller.run
+Controller.run

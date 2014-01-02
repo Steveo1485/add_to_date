@@ -51,7 +51,7 @@ describe Controller do
 
   describe "::print_new_date" do
     it "should return the new_date from View" do
-      expect(Controller.print_new_date([1,10])).to eq("1/10")
+      expect(Controller.print_new_date([1,10])).to eq("Your calculated date is: 1/10")
     end
   end
 

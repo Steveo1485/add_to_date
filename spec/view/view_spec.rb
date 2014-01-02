@@ -30,7 +30,7 @@ describe View do
 
   describe "::new_date" do
     it "should print a string of a new date" do
-      expect(View.new_date([1, 11])).to eq("1/11")
+      expect(View.new_date([1, 11])).to eq("Your calculated date is: 1/11")
     end
   end
 end

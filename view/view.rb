@@ -18,6 +18,6 @@ class View
   end
 
   def self.new_date(date_array)
-    return date_array.join("/")
+    return "Your calculated date is: #{date_array.join("/")}"
   end
 end
